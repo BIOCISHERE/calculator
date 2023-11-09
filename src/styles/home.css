@@ -1,11 +1,25 @@
 .calculatorBTN {
     height: 5rem;
     width: 5rem;
+    margin: 1rem;
+    border-radius: 1rem;
 }
 .clearBTN {
     height: 5rem;
-    width: 20rem;
+    width: 26rem;
+    margin: 1rem;
+    border-radius: 1rem;
 }
 .calculatorShape {
-    width: 25rem;
+    width: 30rem;
+    border-radius: 2rem;
+    background-color: rgba(119, 140, 133, 255);
+}
+.calculatorInput {
+    height: 5rem;
+    width: 26rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(178, 194, 181, 255);
 }

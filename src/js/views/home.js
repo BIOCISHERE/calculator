@@ -3,11 +3,11 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Home = () => (
-	<div className="container-fluid calculatorShape">
-		<div className="row">
-			<div className="col border border-primary">
-				<div className="border border-warning w-1oo">
-					<h2>Aqui ira el input</h2>
+	<div className="container-fluid">
+		<div className="row calculatorShape m-auto">
+			<div className="col">
+				<div className="border border-dark calculatorInput">
+					<h1>Aqui ira el input</h1>
 				</div>
 				<div className="row">
 					<div className="col">
