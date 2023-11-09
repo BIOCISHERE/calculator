@@ -2,13 +2,16 @@
     height: 5rem;
     width: 5rem;
     margin: 1rem;
+    font-size: 2rem;
     border-radius: 1rem;
 }
 .clearBTN {
     height: 5rem;
     width: 26rem;
     margin: 1rem;
+    font-size: 2rem;
     border-radius: 1rem;
+    background-color: rgba(255, 144, 0, 255);
 }
 .calculatorShape {
     width: 30rem;
@@ -16,10 +19,12 @@
     background-color: rgba(119, 140, 133, 255);
 }
 .calculatorInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 5rem;
     width: 26rem;
     margin: 1rem;
     border-radius: 1rem;
-    text-align: center;
     background-color: rgba(178, 194, 181, 255);
 }
