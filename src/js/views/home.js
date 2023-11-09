@@ -3,16 +3,18 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Home = () => (
-	<div className="container">
+	<div className="container-fluid calculatorShape">
 		<div className="row">
 			<div className="col border border-primary">
-				<div className="border border-warning w-1oo">aqui ira el input</div>
+				<div className="border border-warning w-1oo">
+					<h2>Aqui ira el input</h2>
+				</div>
 				<div className="row">
 					<div className="col">
 						<button className="calculatorBTN">7</button>
 						<button className="calculatorBTN">8</button>
 						<button className="calculatorBTN">9</button>
-						<button className="calculatorBTN">C</button>
+						<button className="calculatorBTN">÷</button>
 					</div>
 				</div>
 				<div className="row">
@@ -37,6 +39,11 @@ export const Home = () => (
 						<button className="calculatorBTN">.</button>
 						<button className="calculatorBTN">=</button>
 						<button className="calculatorBTN">+</button>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col">
+						<button className="clearBTN">C</button>
 					</div>
 				</div>
 			</div>
