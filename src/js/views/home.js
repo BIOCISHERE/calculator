@@ -16,9 +16,9 @@ export const Home = () => {
 	const [isDivision, setIsDivision] = useState(false)
 
 	const display = () => {
-		if(!isFirstNmbrDone){
+		if (!isFirstNmbrDone) {
 			return isFirstNumber
-		} else if (!isSecondNmbrDone){
+		} else if (!isSecondNmbrDone) {
 			return isSecondNumber
 		} else {
 			return isNmbrDisplay
@@ -41,7 +41,7 @@ export const Home = () => {
 				setIsFirstNumber(updateNumber)
 				//console.log(isNmbrDisplay)
 			}
-		} else {
+		} else if (!isSecondNmbrDone) {
 			if (isSecondNumber == "0") {
 				let recivingNmbr = numb
 				let nmbrToString = recivingNmbr.toString()
@@ -56,14 +56,8 @@ export const Home = () => {
 				setIsSecondNumber(updateNumber)
 				//console.log(isNmbrDisplay)
 			}
-		}
-	}
-
-	const resultButton = () => {
-		setIsFirstNmbrDone(true)
-		setIsSecondNmbrDone(true)
-		if (isAddition) {
-			addition(isFirstNumber, isSecondNumber)
+		} else {
+			return alert("Operation done, please press the clear buttton")
 		}
 	}
 
@@ -74,6 +68,26 @@ export const Home = () => {
 		let res = (firstNmbr + secondNmbr).toFixed(2)
 
 		setIsNmbrDisplay(res)
+	}
+
+	const clearButton = () => {
+		setIsNmbrDisplay("0")
+		setIsFirstNumber("0")
+		setIsSecondNumber("0")
+		setIsFirstNmbrDone(false)
+		setIsSecondNmbrDone(false)
+		setIsAddition(false)
+		setIsSubtraction(false)
+		setIsMultiplication(false)
+		setIsDivision(false)
+	}
+
+	const resultButton = () => {
+		setIsFirstNmbrDone(true)
+		setIsSecondNmbrDone(true)
+		if (isAddition) {
+			addition(isFirstNumber, isSecondNumber)
+		}
 	}
 
 	const additionButton = () => {
@@ -122,7 +136,7 @@ export const Home = () => {
 					</div>
 					<div className="row">
 						<div className="col">
-							<button className="clearBTN">Clear</button>
+							<button className="clearBTN" onClick={() => clearButton()}>Clear</button>
 						</div>
 					</div>
 				</div>
