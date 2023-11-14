@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -8,21 +7,78 @@ export const Home = () => {
 	const [isFirstNumber, setIsFirstNumber] = useState("0")
 	const [isSecondNumber, setIsSecondNumber] = useState("0")
 
-	const numbersOnClick = (numb) => {
-		if (isNmbrDisplay == "0") {
-			let recivingNmbr = numb
-			let nmbrToString = recivingNmbr.toString()
+	const [isFirstNmbrDone, setIsFirstNmbrDone] = useState(false)
+	const [isSecondNmbrDone, setIsSecondNmbrDone] = useState(false)
 
-			setIsNmbrDisplay(nmbrToString)
+	const [isAddition, setIsAddition] = useState(false)
+	const [isSubtraction, setIsSubtraction] = useState(false)
+	const [isMultiplication, setIsMultiplication] = useState(false)
+	const [isDivision, setIsDivision] = useState(false)
+
+	const display = () => {
+		if(!isFirstNmbrDone){
+			return isFirstNumber
+		} else if (!isSecondNmbrDone){
+			return isSecondNumber
 		} else {
-			let recivingNmbr = numb
-			let nmbrToString = recivingNmbr.toString()
-
-			let updateNumber = isNmbrDisplay.concat(nmbrToString)
-
-			setIsNmbrDisplay(updateNumber)
-			//console.log(isNmbrDisplay)
+			return isNmbrDisplay
 		}
+	}
+
+	const numbersOnClick = (numb) => {
+		if (!isFirstNmbrDone) {
+			if (isFirstNumber == "0") {
+				let recivingNmbr = numb
+				let nmbrToString = recivingNmbr.toString()
+
+				setIsFirstNumber(nmbrToString)
+			} else {
+				let recivingNmbr = numb
+				let nmbrToString = recivingNmbr.toString()
+
+				let updateNumber = isFirstNumber.concat(nmbrToString)
+
+				setIsFirstNumber(updateNumber)
+				//console.log(isNmbrDisplay)
+			}
+		} else {
+			if (isSecondNumber == "0") {
+				let recivingNmbr = numb
+				let nmbrToString = recivingNmbr.toString()
+
+				setIsSecondNumber(nmbrToString)
+			} else {
+				let recivingNmbr = numb
+				let nmbrToString = recivingNmbr.toString()
+
+				let updateNumber = isSecondNumber.concat(nmbrToString)
+
+				setIsSecondNumber(updateNumber)
+				//console.log(isNmbrDisplay)
+			}
+		}
+	}
+
+	const resultButton = () => {
+		setIsFirstNmbrDone(true)
+		setIsSecondNmbrDone(true)
+		if (isAddition) {
+			addition(isFirstNumber, isSecondNumber)
+		}
+	}
+
+	const addition = (num1, num2) => {
+		let firstNmbr = Number(num1)
+		let secondNmbr = Number(num2)
+
+		let res = (firstNmbr + secondNmbr).toFixed(2)
+
+		setIsNmbrDisplay(res)
+	}
+
+	const additionButton = () => {
+		setIsFirstNmbrDone(true)
+		setIsAddition(true)
 	}
 
 	return (
@@ -30,7 +86,7 @@ export const Home = () => {
 			<div className="row calculatorShape m-auto">
 				<div className="col">
 					<div className="border border-dark calculatorInput">
-						<h1>{isNmbrDisplay}</h1>
+						<h1>{display()}</h1>
 					</div>
 					<div className="row">
 						<div className="col">
@@ -59,9 +115,9 @@ export const Home = () => {
 					<div className="row">
 						<div className="col">
 							<button className="calculatorBTN" onClick={() => numbersOnClick(0)}>0</button>
-							<button className="calculatorBTN">.</button>
-							<button className="calculatorBTN">=</button>
-							<button className="calculatorBTN">+</button>
+							<button className="calculatorBTN" onClick={() => numbersOnClick(".")}>.</button>
+							<button className="calculatorBTN" onClick={() => resultButton()}>=</button>
+							<button className="calculatorBTN" onClick={() => additionButton()}>+</button>
 						</div>
 					</div>
 					<div className="row">
