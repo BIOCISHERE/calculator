@@ -39,7 +39,6 @@ export const Home = () => {
 				let updateNumber = isFirstNumber.concat(nmbrToString)
 
 				setIsFirstNumber(updateNumber)
-				//console.log(isNmbrDisplay)
 			}
 		} else if (!isSecondNmbrDone) {
 			if (isSecondNumber == "0") {
@@ -54,7 +53,6 @@ export const Home = () => {
 				let updateNumber = isSecondNumber.concat(nmbrToString)
 
 				setIsSecondNumber(updateNumber)
-				//console.log(isNmbrDisplay)
 			}
 		} else {
 			return alert("Operation done, please press the clear buttton")
@@ -66,6 +64,15 @@ export const Home = () => {
 		let secondNmbr = Number(num2)
 
 		let res = (firstNmbr + secondNmbr).toFixed(2)
+
+		setIsNmbrDisplay(res)
+	}
+
+	const subtraction = (num1, num2) => {
+		let firstNmbr = Number(num1)
+		let secondNmbr = Number(num2)
+
+		let res = (num1 - num2).toFixed(2)
 
 		setIsNmbrDisplay(res)
 	}
@@ -87,12 +94,19 @@ export const Home = () => {
 		setIsSecondNmbrDone(true)
 		if (isAddition) {
 			addition(isFirstNumber, isSecondNumber)
+		} else if (isSubtraction){
+			subtraction(isFirstNumber, isSecondNumber)
 		}
 	}
 
 	const additionButton = () => {
 		setIsFirstNmbrDone(true)
 		setIsAddition(true)
+	}
+
+	const subtractionButton = () => {
+		setIsFirstNmbrDone(true)
+		setIsSubtraction(true)
 	}
 
 	return (
@@ -123,7 +137,7 @@ export const Home = () => {
 							<button className="calculatorBTN" onClick={() => numbersOnClick(1)}>1</button>
 							<button className="calculatorBTN" onClick={() => numbersOnClick(2)}>2</button>
 							<button className="calculatorBTN" onClick={() => numbersOnClick(3)}>3</button>
-							<button className="calculatorBTN">-</button>
+							<button className="calculatorBTN" onClick={() => subtractionButton()}>-</button>
 						</div>
 					</div>
 					<div className="row">
