@@ -72,7 +72,16 @@ export const Home = () => {
 		let firstNmbr = Number(num1)
 		let secondNmbr = Number(num2)
 
-		let res = (num1 - num2).toFixed(2)
+		let res = (firstNmbr - secondNmbr).toFixed(2)
+
+		setIsNmbrDisplay(res)
+	}
+
+	const multiplication = (num1, num2) => {
+		let firstNmbr = Number(num1)
+		let secondNmbr = Number(num2)
+
+		let res = (num1 * num2).toFixed(2)
 
 		setIsNmbrDisplay(res)
 	}
@@ -96,6 +105,8 @@ export const Home = () => {
 			addition(isFirstNumber, isSecondNumber)
 		} else if (isSubtraction){
 			subtraction(isFirstNumber, isSecondNumber)
+		} else if (isMultiplication){
+			multiplication(isFirstNumber, isSecondNumber)
 		}
 	}
 
@@ -107,6 +118,11 @@ export const Home = () => {
 	const subtractionButton = () => {
 		setIsFirstNmbrDone(true)
 		setIsSubtraction(true)
+	}
+
+	const multiplicationButton = () => {
+		setIsFirstNmbrDone(true)
+		setIsMultiplication(true)
 	}
 
 	return (
@@ -129,7 +145,7 @@ export const Home = () => {
 							<button className="calculatorBTN" onClick={() => numbersOnClick(4)}>4</button>
 							<button className="calculatorBTN" onClick={() => numbersOnClick(5)}>5</button>
 							<button className="calculatorBTN" onClick={() => numbersOnClick(6)}>6</button>
-							<button className="calculatorBTN">X</button>
+							<button className="calculatorBTN" onClick={() => multiplicationButton()}>X</button>
 						</div>
 					</div>
 					<div className="row">
