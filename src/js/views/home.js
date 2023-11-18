@@ -81,7 +81,16 @@ export const Home = () => {
 		let firstNmbr = Number(num1)
 		let secondNmbr = Number(num2)
 
-		let res = (num1 * num2).toFixed(2)
+		let res = (firstNmbr * secondNmbr).toFixed(2)
+
+		setIsNmbrDisplay(res)
+	}
+
+	const division = (num1, num2) => {
+		let firstNmbr = Number(num1)
+		let secondNmbr = Number(num2)
+
+		let res = (firstNmbr / secondNmbr).toFixed(2)
 
 		setIsNmbrDisplay(res)
 	}
@@ -107,6 +116,10 @@ export const Home = () => {
 			subtraction(isFirstNumber, isSecondNumber)
 		} else if (isMultiplication){
 			multiplication(isFirstNumber, isSecondNumber)
+		} else if (isDivision){
+			division(isFirstNumber, isSecondNumber)
+		} else {
+			return alert("Please, select the addition, subtraction, multiplication or division button")
 		}
 	}
 
@@ -125,6 +138,11 @@ export const Home = () => {
 		setIsMultiplication(true)
 	}
 
+	const divisionButton = () => {
+		setIsFirstNmbrDone(true)
+		setIsDivision(true)
+	}
+
 	return (
 		<div className="container-fluid">
 			<div className="row calculatorShape m-auto">
@@ -137,7 +155,7 @@ export const Home = () => {
 							<button className="calculatorBTN" onClick={() => numbersOnClick(7)}>7</button>
 							<button className="calculatorBTN" onClick={() => numbersOnClick(8)}>8</button>
 							<button className="calculatorBTN" onClick={() => numbersOnClick(9)}>9</button>
-							<button className="calculatorBTN">÷</button>
+							<button className="calculatorBTN" onClick={() => divisionButton()}>÷</button>
 						</div>
 					</div>
 					<div className="row">
